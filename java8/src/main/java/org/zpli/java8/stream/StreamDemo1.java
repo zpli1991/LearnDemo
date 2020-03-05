@@ -20,8 +20,13 @@ public class StreamDemo1 {
         Student student4 = new Student("zhaoliu",24,384);
 
         List<Student> students = Arrays.asList(student1,student2,student3,student4);
+
+        students.stream().forEach(System.out::println);
+
         Student student = students.stream().sorted(Comparator.comparingInt(x->x.getAge())).findFirst().get();
         System.out.println(student);
+        long num = students.stream().filter(x->x.getDistance()>400).count();
+        System.out.println(num);
     }
 }
 
