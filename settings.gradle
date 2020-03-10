@@ -1,4 +1,8 @@
 rootProject.name = 'LearnDemo'
 include 'logger'
 include 'java8'
+include 'servlet'
+include 'servlet'
+include 'servlet'
+include 'servletDemo'
 
