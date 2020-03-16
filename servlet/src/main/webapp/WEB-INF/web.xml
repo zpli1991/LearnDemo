@@ -7,15 +7,65 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <listener>
+        <listener-class>org.zpli.listener.MyServletContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.zpli.listener.MyHttpSessionListener</listener-class>
+    </listener>
+
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
+    <!--Default Servlet-->
     <servlet>
         <servlet-name>ServletDemo</servlet-name>
         <servlet-class>org.zpli.servlet.ServletDemo</servlet-class>
+        <!--配置ServletConfigDemo1的初始化参数 -->
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>李宗萍</param-value>
+        </init-param>
+        <init-param>
+            <param-name>company</param-name>
+            <param-value>兆日科技</param-value>
+        </init-param>
+        <init-param>
+            <param-name>address</param-name>
+            <param-value>陝西省西安市</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>ServletDemo</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/default</url-pattern>
     </servlet-mapping>
+    <!--Default Servlet-->
+
+    <!--Cookie Servlet-->
+    <servlet>
+        <servlet-name>CookieServlet</servlet-name>
+        <servlet-class>org.zpli.servlet.CookieServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CookieServlet</servlet-name>
+        <url-pattern>/cookie</url-pattern>
+    </servlet-mapping>
+    <!--Cookie Servlet-->
+
+    <!--Session Servlet-->
+    <servlet>
+        <servlet-name>SessionServlet</servlet-name>
+        <servlet-class>org.zpli.servlet.SessionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SessionServlet</servlet-name>
+        <url-pattern>/session</url-pattern>
+    </servlet-mapping>
+    <!--Session Servlet-->
 
     <filter>
         <filter-name>FilterDemo</filter-name>

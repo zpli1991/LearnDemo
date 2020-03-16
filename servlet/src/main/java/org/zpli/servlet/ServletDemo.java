@@ -2,10 +2,12 @@ package org.zpli.servlet;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
 /**
  * @Description: TODO
@@ -15,11 +17,12 @@ import java.io.IOException;
  */
 public class ServletDemo extends HttpServlet {
 
+    private ServletConfig servletConfig;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("------------ Servlet init Params ------------");
-        super.init(config);
+        this.servletConfig = config;
     }
 
     @Override
@@ -29,9 +32,20 @@ public class ServletDemo extends HttpServlet {
     }
 
     @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("------------ Servlet service ------------");
-        super.service(req, res);
+        PrintWriter out = resp.getWriter();
+        StringBuilder sb = new StringBuilder("Hello Service Info -->\n");
+        sb.append("<br />");
+        sb.append("<hr />");
+        Enumeration<String> parameterNames = servletConfig.getInitParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String name = parameterNames.nextElement();
+            String value = servletConfig.getInitParameter(name);
+            sb.append(String.format("%s : %s", name, value));
+            sb.append("<br />");
+        }
+        out.println(sb);
     }
 
     @Override

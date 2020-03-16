@@ -1,0 +1,1 @@
+Jedis对象不是线程安全的，在多线程下使用同一个Jedis对象会出现并发问题，为了避免每次使用Jedis对象时都需要重新创建，Jedis提供了JedisPool。JedisPool是线程安全的连接池。
