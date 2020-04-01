@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.zpli'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":common-base")
+    // https://mvnrepository.com/artifact/org.apache.curator/curator-recipes
+    compile group: 'org.apache.curator', name: 'curator-recipes', version: '2.12.0'
+
+
+}
