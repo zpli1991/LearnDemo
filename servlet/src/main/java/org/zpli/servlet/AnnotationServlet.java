@@ -16,9 +16,14 @@ import java.io.IOException;
 
 @WebServlet("/annotation/*")
 public class AnnotationServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().println("这是注解实现的 Servlet --> doGet");
+    }
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("这是 注解实现的 Servlet");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().println("这是注解实现的 Servlet --> doPost");
     }
+
 }

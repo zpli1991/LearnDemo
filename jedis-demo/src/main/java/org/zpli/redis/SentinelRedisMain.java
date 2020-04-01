@@ -14,7 +14,9 @@ public class SentinelRedisMain {
 
     public static void main(String[] args) throws DataException {
         JedisSentinelManager.initJedisSentinelPool();
-        RedisStringUtils.saveData("name","zpli");
+        // RedisStringUtils.saveData(null,"");
+
+        RedisStringUtils.getData(null);
 
         System.out.println(RedisStringUtils.exist("name"));
         System.out.println(RedisStringUtils.exist("age"));

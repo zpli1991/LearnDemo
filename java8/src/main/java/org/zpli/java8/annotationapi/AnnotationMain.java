@@ -3,6 +3,7 @@ package org.zpli.java8.annotationapi;
 import sun.misc.Launcher;
 
 import java.lang.annotation.Annotation;
+import java.util.Collections;
 
 /**
  * @Description: TODO
@@ -18,6 +19,5 @@ public class AnnotationMain {
 
         // System.out.println(value);
         // byte short int long float double boolean char
-
     }
 }

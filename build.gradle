@@ -1,4 +1,7 @@
 allprojects {
+    group 'org.zpli'
+    version '1.0-SNAPSHOT'
+    
     repositories {
         // 本地库，local repository(${user.home}/.m2/repository)
         mavenLocal()

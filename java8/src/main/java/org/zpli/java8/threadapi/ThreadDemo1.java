@@ -12,12 +12,7 @@ public class ThreadDemo1 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Runnable runnable = () -> System.out.println("Hello World");
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Future<String> future = executorService.submit(new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return "HelloWorld";
-            }
-        });
+        Future<String> future = executorService.submit(() -> "HelloWorld");
         executorService.shutdown();
         System.out.println("future is Done ? " + future.isDone());
         System.out.println(future.get());

@@ -9,22 +9,9 @@ package org.zpli.java8.threadapi;
 public class DepotMain {
     public static void main(String[] args) {
         Depot depot = new Depot(7);
-        while (true) {
-            new Producer(depot).produceLock();
-            new Producer(depot).produceLock();
-            new Producer(depot).produceLock();
-            new Producer(depot).produceLock();
-            new Producer(depot).produceLock();
-            new Producer(depot).produceLock();
-            new Consumer(depot).consumeLock();
-
-            // new Producer(depot).produceSync();
-            // new Producer(depot).produceSync();
-            // new Producer(depot).produceSync();
-            // new Producer(depot).produceSync();
-            // new Producer(depot).produceSync();
-            // new Consumer(depot).consumeSync();
-
-        }
+        new Thread(new Producer(depot)).start();
+        new Thread(new Consumer(depot)).start();
+        new Thread(new Producer(depot)).start();
+        new Thread(new Consumer(depot)).start();
     }
 }

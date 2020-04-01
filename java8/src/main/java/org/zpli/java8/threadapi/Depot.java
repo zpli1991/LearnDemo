@@ -1,5 +1,6 @@
 package org.zpli.java8.threadapi;
 
+import java.util.ArrayList;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -19,6 +20,7 @@ public class Depot {
     private Condition condition = lock.newCondition();
 
     public Depot(int currentCount) {
+
         this.currentCount = currentCount;
     }
 
@@ -39,15 +41,15 @@ public class Depot {
         }
     }
 
-    public  void produceSync() {
+    public synchronized void produceSync() {
         try {
             while (this.currentCount >= this.MAX_COUNT) {
                 wait();
             }
             this.currentCount++;
-            System.out.println("produceSync当前数量是：" + this.currentCount);
+            System.out.println("当前线程是" + Thread.currentThread().getName() + "produceSync当前数量是：" + this.currentCount);
             notifyAll();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -74,9 +76,9 @@ public class Depot {
                 wait();
             }
             this.currentCount--;
-            System.out.println("consumeSync当前数量是：" + this.currentCount);
+            System.out.println("当前线程是" + Thread.currentThread().getName() + "consumeSync当前数量是：" + this.currentCount);
             notifyAll();
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

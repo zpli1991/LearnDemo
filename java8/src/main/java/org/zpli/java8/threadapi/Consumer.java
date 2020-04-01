@@ -6,7 +6,7 @@ package org.zpli.java8.threadapi;
  * @author: 李宗萍（0677）
  * @Date: 2020/3/16 14:51
  */
-public class Consumer {
+public class Consumer implements Runnable {
 
     private Depot depot;
 
@@ -14,21 +14,10 @@ public class Consumer {
         this.depot = depot;
     }
 
-    public void consumeLock() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                depot.consumeLock();
-            }
-        }).start();
-    }
 
-    public void consumeSync() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                depot.consumeSync();
-            }
-        }).start();
+    @Override
+    public void run() {
+        while (true)
+            depot.consumeSync();
     }
 }

@@ -6,7 +6,7 @@ package org.zpli.java8.threadapi;
  * @author: 李宗萍（0677）
  * @Date: 2020/3/16 14:50
  */
-public class Producer {
+public class Producer implements Runnable {
 
     private Depot depot;
 
@@ -14,21 +14,10 @@ public class Producer {
         this.depot = depot;
     }
 
-    public void produceLock() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                depot.produceLock();
-            }
-        }).start();
-    }
 
-    public void produceSync() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                depot.produceSync();
-            }
-        }).start();
+    @Override
+    public void run() {
+        while (true)
+            depot.produceSync();
     }
 }
