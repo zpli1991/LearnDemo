@@ -5,6 +5,8 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 
+import java.util.List;
+
 /**
  * @Description: TODO
  * @Copyright: Copyright © 深圳兆日科技股份有限公司（300333）
@@ -24,13 +26,43 @@ public class ZKClientManager {
                 .connectionTimeoutMs(5000)
                 .retryPolicy(policy)
                 .build();
-        client.start();
         return client;
-
     }
 
-    public static void releaseClient(CuratorFramework client){
-        client.close();
+    public static byte[] getData(String path) {
+        CuratorFramework client = null;
+        byte[] data = null;
+        try {
+            client = createCuratorFramework();
+            if (null != client.checkExists().forPath(path)) {
+                data = client.getData().forPath(path);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            releaseClient(client);
+        }
+        return data;
     }
 
+    public static List<String> getChildren(String path) {
+        CuratorFramework client = null;
+        List<String> childrens = null;
+        try {
+            client = createCuratorFramework();
+            if (null != client.checkExists().forPath(path)) {
+                childrens = client.getChildren().forPath(path);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            releaseClient(client);
+        }
+        return childrens;
+    }
+
+    public static void releaseClient(CuratorFramework client) {
+        if (null != client)
+            client.close();
+    }
 }

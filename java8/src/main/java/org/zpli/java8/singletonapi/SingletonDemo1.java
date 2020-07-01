@@ -1,5 +1,7 @@
 package org.zpli.java8.singletonapi;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @Description: 懒汉式单例模式
  * @Copyright: Copyright © 深圳兆日科技股份有限公司（300333）
@@ -7,6 +9,11 @@ package org.zpli.java8.singletonapi;
  * @Date: 2020/3/11 14:14
  */
 public class SingletonDemo1 {
+
+    @PostConstruct
+    public void init(){
+        System.out.println("========= PostConstruct ===========");
+    }
 
     private static final SingletonDemo1 singletonDemo1 = new SingletonDemo1();
 

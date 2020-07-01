@@ -1,0 +1,23 @@
+<web-app>
+    <servlet>
+        <!-- 加载前端控制器 -->
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--
+               加载配置文件
+               默认加载规范：
+               * 文件命名：servlet-name-servlet.xml====springmvc-servlet.xml
+               * 路径规范：必须在WEB-INF目录下面
+               修改加载路径：
+         -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -10,21 +10,29 @@ package org.zpli.java8.enumapi;
 public enum  MethodEnumDemo {
 
     FIRST{
-        public void sayHello(){
+        public String sayHello(){
             System.out.println("Hello FIRST");
+            return null;
         }
     },
 
     SECOND{
-        public void sayHello(){
+        public String sayHello(){
             System.out.println("Hello SECOND");
+            return null;
         }
     };
 
-    public abstract void sayHello();
+    public abstract String sayHello();
+
+    public void sayHi(){
+        sayHello();
+    }
 
     public static void main(String[] args) {
         MethodEnumDemo.FIRST.sayHello();
         MethodEnumDemo.SECOND.sayHello();
+        MethodEnumDemo.FIRST.sayHi();
+        MethodEnumDemo.SECOND.sayHi();
     }
 }

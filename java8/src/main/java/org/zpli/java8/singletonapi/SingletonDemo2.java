@@ -8,7 +8,7 @@ package org.zpli.java8.singletonapi;
  */
 public class SingletonDemo2 {
 
-    private static volatile SingletonDemo2 singletonDemo2 = null;
+    private static volatile SingletonDemo2 singletonDemo2;
 
     private SingletonDemo2() {
 

@@ -5,10 +5,10 @@ allprojects {
     repositories {
         // 本地库，local repository(${user.home}/.m2/repository)
         mavenLocal()
+        // 指定阿里云Maven库位置
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
         // Maven中心库(http://repo1.maven.org/maven2)
         mavenCentral()
-        // 指定Maven库位置
-        maven { url "http://192.168.10.80:8081/nexus/content/groups/public/" }
     }
 
 }

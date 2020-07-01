@@ -7,3 +7,6 @@ include 'zookeeper-curator'
 include 'httpclient'
 include 'kafka'
 include 'design-pattern'
+include 'socket-demo'
+include 'spring-demo'
+

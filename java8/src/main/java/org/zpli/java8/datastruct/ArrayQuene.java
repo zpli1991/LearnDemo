@@ -1,5 +1,6 @@
 package org.zpli.java8.datastruct;
 
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -40,5 +41,6 @@ public class ArrayQuene {
     }
 
     private void expand() {
+        // List
     }
 }

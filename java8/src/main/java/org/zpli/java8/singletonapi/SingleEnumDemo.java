@@ -1,5 +1,7 @@
 package org.zpli.java8.singletonapi;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @Description: 枚举单例
  * @Copyright: Copyright © 深圳兆日科技股份有限公司（300333）

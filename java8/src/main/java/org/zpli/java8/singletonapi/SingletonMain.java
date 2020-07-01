@@ -9,7 +9,9 @@ package org.zpli.java8.singletonapi;
 public class SingletonMain {
 
     public static void main(String[] args) {
+        SingletonDemo1 singletonDemo1 = SingletonDemo1.getInstance();
         SingletonDemo1 singletonDemo11 = SingletonDemo1.getInstance();
+        SingletonDemo1 singletonDemo111 = SingletonDemo1.getInstance();
         SingletonDemo1 singletonDemo12 = SingletonDemo1.getInstance();
         SingletonDemo1 singletonDemo13 = SingletonDemo1.getInstance();
         System.out.println(singletonDemo11.toString());

@@ -11,6 +11,7 @@ import java.util.*;
  */
 public class Reviewer {
     public static void main(String[] args) {
+        new HashMap();
         // List<String> list = new ArrayList<>();
         // for (int i = 0; i < 500000; i++) {
         //     list.add("a" + i);
