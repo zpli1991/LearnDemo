@@ -13,5 +13,5 @@ package algorithm;
  * @author: zpli
  * @Date: 2020/6/30 11:16
  */
-public class LongestValidBracket_LeetCode_32 {
+public class LeetCode_32_LongestValidBracket {
 }

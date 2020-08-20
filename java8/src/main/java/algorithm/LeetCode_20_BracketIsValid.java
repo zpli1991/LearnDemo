@@ -31,7 +31,7 @@ import java.util.Stack;
  * @author: zpli
  * @Date: 2020/6/30 10:24
  */
-public class BracketIsValid_LeetCode_20 {
+public class LeetCode_20_BracketIsValid {
 
     public static void main(String[] args) {
         System.out.println(isValid("[]"));
